@@ -5,19 +5,7 @@ var isBetween = require("dayjs/plugin/isBetween")
 dayjs.extend(isBetween)
 import { MdKeyboardArrowLeft } from "react-icons/md"
 import { MdKeyboardArrowRight } from "react-icons/md"
-
-const DayButton = ({ dateItem, handleDateRange, isSelected }) => {
-  const { date, currentMonth, today } = dateItem
-  return (
-    <button
-      disabled={!currentMonth}
-      onClick={() => handleDateRange(date)}
-      className={`w-[50px] h-[36px] cursor-pointer ${isSelected ? "bg-[#006edc]" : "hover:bg-[#e6e6e6] "} ${today ? "bg-[#ffff76]" : ""} ${currentMonth ? "" : "text-[#757575] cursor-not-allowed"}`}
-    >
-      {date.date()}日
-    </button>
-  )
-}
+import DayButton from "./DayButton"
 
 const Calendar = () => {
   const currentDate = dayjs()
